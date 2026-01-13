@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"/>
+  <title>Mausritter Mouse Maker!</title>
+</head>
+<body>
+  <a href="../main.html"><- Main Page</a>
+  <hr><br>
+  <img id="img_logo" src="../logo.jpg" style="width:300px;height:40px;">
+  <h2>Mausritter Mouse Maker!</h2>
+  <button onclick="btnNewMouse()">Random Mouse</button>
+  <p id="display_name"></p>
+  <p id="display_attributes"></p>
+  <p id="display_details"></p>
+  <p id="display_equipment"></p>
+  
+  <script src="backgrounds.js"></script>
+  <script src="character_details.js"></script>
+  <script src="names.js"></script>
+ 
+  <script>
+  const playerLevels = {
+    "1":{"Level": 1, "HD": "1d6", "Grit": 0, "XP": 0, "Next": 1000},
+    "2":{"Level": 2, "HD": "2d6", "Grit": 1, "XP": 1000, "Next": 3000},
+  };
+  
+  let playerLevel = playerLevels['1'];
+  
+  let playerMouse = {
+    "Level": playerLevel["Level"],
+    "HD": playerLevel["HD"],
+    "Grit": playerLevel["Grit"],
+    "XP": playerLevel["XP"],
+    "Next": playerLevel["Next"]
+  };
+
+  const attributes = ["Strength","Dexterity","Will"];
+  
+  let pips = 0 ;
+  
+  
+  function rollD6(){ return Math.floor(Math.random() * 6) + 1 ; }
+
+  
+  function btnNewMouse(){
+    const attribute_values = [] ;
+    for (let x = 0; x < attributes.length; x++){
+      const roll_3d6 = [];
+      for ( let i = 0; i < 3; i++ ){
+        let d6_1 = rollD6();
+        roll_3d6.push(d6_1);
+      }
+      roll_3d6.sort((a, b) => b - a);
+      roll_3d6.pop();
+      
+      let sum = 0 ;
+      for (let i = 0; i < roll_3d6.length; i++) {
+        sum += roll_3d6[i];
+      }
+      attribute_values.push(sum);
+    }
+    
+    const attributesAndValues = {};
+    for (let i = 0; i < attributes.length; i++) {
+      attributesAndValues[attributes[i]] = attribute_values[i];
+    }
+    
+    let output = 
+      Object.entries(attributesAndValues)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(", ");
+    
+    playerMouse.HP = rollD6();
+    pips = rollD6();
+     output += `<br>Pips: ${pips}`;
+    document.getElementById("display_attributes").innerHTML = output;
+    
+    generateBackground();
+    generateDetails();
+    generateName();
+    generateEquipment();
+  }
+  
+  
+  function generateBackground(){
+    const keys = Object.keys(backgrounds);
+    const randomIndexBackground = Math.floor(Math.random() * keys.length);
+    const randomBackground = keys[randomIndexBackground];
+    playerMouse.background = randomBackground;
+    playerMouse.background.items = playerMouse.background
+  }
+  
+  
+  function generateDetails(){
+    const randomIndexBirthsign = Math.floor(Math.random() * birthsigns.length);
+    const randomBirthsign = birthsigns[randomIndexBirthsign];
+    
+    const randomIndexCoatColor = Math.floor(Math.random() * coat_colors.length);
+    const randomCoatColor = coat_colors[randomIndexCoatColor];
+    
+    const randomIndexCoatPattern = Math.floor(Math.random() * coat_patterns.length);
+    const randomCoatPattern = coat_patterns[randomIndexCoatPattern];
+    
+    const randomIndexFeature = Math.floor(Math.random() * features.length);
+    const randomFeature = features[randomIndexFeature];
+    
+    document.getElementById("display_details").innerHTML =
+    `Birthsign: ${randomBirthsign}<br>
+    Coat: ${randomCoatColor}, ${randomCoatPattern}<br>
+    Features: ${randomFeature}`
+  }
+  
+  
+  function generateName(){
+    const randomIndexFirstName = Math.floor(Math.random() * firstnames.length);
+    const randomFirstName = firstnames[randomIndexFirstName];
+    
+    const randomIndexSurName = Math.floor(Math.random() * surnames.length);
+    const randomSurName = surnames[randomIndexSurName];
+    playerMouse.name = `${randomFirstName} ${randomSurName}`;
+    document.getElementById("display_name").innerHTML = 
+    `${playerMouse.name}, 
+    ${playerMouse.background}<br>
+    Level ${playerMouse['Level']},
+    HD ${playerLevels['1']['HD']},
+    HP ${playerMouse.HP},
+    Grit ${playerMouse['Grit']}<br>
+    XP ${playerMouse['XP']},
+    Next ${playerMouse['Next']}`;
+  }
+  
+  
+  function generateEquipment(){
+    playerMouse.equipment = ["Torches", "Rations"];
+    let bgd = playerMouse.background;
+    let backgroundItems = backgrounds[bgd];
+    
+    const mergedItems = [...playerMouse.equipment, ...backgroundItems];
+    
+    document.getElementById('display_equipment').innerHTML = 
+    mergedItems.join("<br>");
+  }
+  
+  </script>
+</body>
+</html>
