@@ -37,11 +37,11 @@
         "room_contents": [
             " Locked door. Key can be found in another room. Knocking the door down takes time and makes noise.",
             " Steep climb. Without special equipment, mice risk exhaustion or falling.",
-            " Room with an exit in the centre of the roof, \" away from any wall.",
+            " Room with an exit in the centre of the roof, 6 inches away from any wall.",
             " Device that creates an high-pitched scream. Each Turn spent here or in adjacent rooms gives Frightened Condition.",
             " Caved-in section of tunnel, leaving a gap too small to crawl through.",
             " Tunnel completely filled with water.",
-            " Wide, deep puddle of mud blocking the way. Gives an Exhausted Condition per \" traveled.",
+            " Wide, deep puddle of mud blocking the way. Gives an Exhausted Condition per 6 inches traveled.",
             " Long, smooth, upwards sloping metal or plastic tube."
         ]
     },
@@ -54,10 +54,10 @@
         "room_contents": [
             " Large stone door, chiseled loose from frame. Device behind the door tips it forward when handle is turned.",
             " Long hallway flooded with water, electrified by large battery in an alcove.",
-            " Dark room filled with noxious, explosive gas. Distinct smell of rotten eggs. d damage if ignited.",
+            " Dark room filled with noxious, explosive gas. Distinct smell of rotten eggs. d20 damage if ignited.",
             " Thin thread stretched across deadly fall. Safe if traveling slowly, one at a time.",
             " Pit blocking the way. A snake is asleep at the bottom.",
-            " Door with three handles in the shape of mushrooms, one safe, the others poison. Poison handles deal d magical damage.",
+            " Door with three handles in the shape of mushrooms, one safe, the others poison. Poison handles deal d12 magical damage.",
             " Circle of enchanted mushrooms, with a young mouse inside. Those within try desperately to get others to enter.",
             " Floor is covered in sticky glue. Requires a STR save to break a foot loose."
         ]
