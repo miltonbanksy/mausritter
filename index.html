@@ -5,19 +5,30 @@
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
   <title>Mausritter Mouse Maker!</title>
 </head>
+
 <body>
-  <h1>Mausritter 🐭</h1>
-  <h2>Mausritter Mouse Maker!</h2>
+  <h1 class="mouse-memoirs-regular">Mausritter 🐭</h1>
+
+  <button id="btn-random-adventure-site">Generate Adventure Site</button>
+  <p id="display-adventure-site"></p>
+
+  <button id="btn-random-room-stock">Generate Room</button>
+  <p id="display-random-room-stock"></p>
+
+  
+
   <button onclick="btnNewMouse()">Random Mouse</button>
   <p id="display_name"></p>
   <p id="display_attributes"></p>
   <p id="display_details"></p>
   <p id="display_equipment"></p>
 
-  <button id="btn-random-room-stock">Generate Room</button>
-  <p id="display-random-room-stock"></p>
+  
 
   <h2>DM Procedures (from Reddit.com)</h2>
   <h3>Dungeoneering</h3>
@@ -58,6 +69,8 @@
   <script src="backgrounds.js"></script>
   <script src="character_details.js"></script>
   <script src="names.js"></script>
+  <script src="adventure_site.js"></script>
+  <script src="data_adventure_sites.js"></script>
   <script src="room_stocking.js"></script>
  
   <script>

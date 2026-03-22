@@ -1,4 +1,4 @@
-birthsigns = [
+const birthsigns = [
   "Star - Brave / Reckless",
   "Wheel - Industrious / Unimaginative",
   "Acorn - Inquisitive / Stubborn",
@@ -7,7 +7,7 @@ birthsigns = [
   "Mother - Nurturing / Worrying"
 ];
 
-coat_colors = [
+const coat_colors = [
   "Chocolate",
   "Black",
   "White",
@@ -16,7 +16,7 @@ coat_colors = [
   "Blue"
 ];
 
-coat_patterns = [
+const coat_patterns = [
   "Solid",
   "Brindle",
   "Patchy",

@@ -1,22 +1,10 @@
-
-async function loadJSON(path) {
-    try {
-        const response = await fetch(path);
-        return await response.json();
-    } catch (error) {
-        console.log(`Error loading ${path}:`, error);
-    }
-}
-
-const tables = {};
-
 const btnRandomRoomStock = document.querySelector('#btn-random-room-stock');
 const displayRandomRoomStock = document.querySelector('#display-random-room-stock');
 
 btnRandomRoomStock.disabled = true;
 
 async function init() {
-    tables.rooms = await loadJSON("random_room_stock.json");
+    tables.rooms = await loadJSON("data_rooms.json");
     btnRandomRoomStock.disabled = false;
 }
 
@@ -50,10 +38,8 @@ btnRandomRoomStock.addEventListener('click', () => {
     console.log(`Room Contents: ${room_contents}`);
     
     displayRandomRoomStock.innerHTML = `
-    Room Type: ${room['room_type']}
-    <br>Creature: ${hasCreature ? "Yes" : "No"}
-    <br>Treasure: ${hasTreasure ? "Yes" : "No"}
-    <br><br>Room Description: ${room['room_description']}
-    <br><br>Room Contents: ${room_contents}
+    ${room['room_type']}, Creature: ${hasCreature ? "Yes" : "No"}, Treasure: ${hasTreasure ? "Yes" : "No"}
+    <br><br>${room['room_description']}
+    <br><br>Contents: ${room_contents}
     `;
 });
