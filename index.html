@@ -14,15 +14,22 @@
 <body>
   <h1 class="mouse-memoirs-regular">Mausritter 🐭</h1>
 
-  <button id="btn-random-adventure-site">Generate Adventure Site</button>
+  <button id="btn-random-adventure-site">Adventure Site</button>
   <p id="display-adventure-site"></p>
 
-  <button id="btn-random-room-stock">Generate Room</button>
+  <button id="btn-random-room-stock">Room</button>
   <p id="display-random-room-stock"></p>
 
-  
+  <button id="btn-random-treasure">Treasure</button>
+  <p id="display-random-treasure"></p>
 
-  <button onclick="btnNewMouse()">Random Mouse</button>
+  <button id="btn-random-spell">Spell</button>
+  <p id="display-random-spell"></p>
+
+  <button id="btn-random-magic-sword">Magic Sword</button>
+  <p id="display-random-magic-sword"></p>
+
+  <button onclick="btnNewMouse()">Mouse</button>
   <p id="display_name"></p>
   <p id="display_attributes"></p>
   <p id="display_details"></p>
@@ -30,7 +37,7 @@
 
   
 
-  <h2>DM Procedures (from Reddit.com)</h2>
+  <h2 class="mouse-memoirs-regular">DM Procedures (from Reddit.com)</h2>
   <h3>Dungeoneering</h3>
   <pre>1: Tick turn counter.
 2: Mark light source usage if 6th turn.
@@ -72,6 +79,8 @@
   <script src="adventure_site.js"></script>
   <script src="data_adventure_sites.js"></script>
   <script src="room_stocking.js"></script>
+  <script src="data_treasure.js"></script>
+  <script src="data_spells.js"></script>
  
   <script>
   const playerLevels = {
