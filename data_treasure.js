@@ -102,6 +102,50 @@ const treasure_useful = [
   "Lost mouse, willing to help"
 ];
 
+// Fill this in with brick-a-brack...
+const carried_bricabrac = [
+  "Dried five-leaf clover, carefully folded",
+  "Stone pendant of the Mother",
+  "Stub of a pencil",
+  "Dried herbs in waterproof bag",
+  "Wire bent into the shape of a moth",
+  "Letter of writ from a noblemouse",
+  "Smooth piece of coloured glass",
+  "Half-eaten piece of cheese, wrapped in paper",
+  "Smoke-blackened bat tooth",
+  "Metal cup etched with hunting scenes",
+  "Oddly shimmering opal in silver wire setting",
+  "Knife cut from a tin can",
+  "Clay jar of thick honey mead",
+  "Bee stinger wired to wooden handle",
+  "Piece of candied berry",
+  "Butterfly wings pressed between parchment",
+  "Map showing treasure hidden in a settlement",
+  "Note from a cat lord regarding a player mouse",
+  "Wooden idol of centipede eating its own tail",
+  "Tooth of a human child",
+  "Pot of bright paint",
+  "Angry ant queen in a glass jar",
+  "Rolled tapestry depicting ancient battle",
+  "Ball of wet clay that never dries out",
+  "Lock of a faerie's hair",
+  "Vial of red ink",
+  "Straw basket with leather carrying straps",
+  "Fragment of a spell tablet",
+  "Dried, poisonous mushroom",
+  "Pink plastic furbrush",
+  "Collection of dried leaves, bound with twine",
+  "Pipe carved of shell",
+  "Scrap of sheepskin",
+  "Quiver of silver-tipped arrows",
+  "Wreath of silver wire",
+  "Very strong magnet",
+  "Bouncy rubber ball",
+  "Fish leather satchel",
+  "Extremely spicy chilli pepper",
+  "Fly preserved in tree sap"
+];
+
 const btnRandomTreasure = document.querySelector('#btn-random-treasure');
 const displayRandomTreasure = document.querySelector('#display-random-treasure');
 
@@ -160,4 +204,19 @@ const displayRandomMagicSword = document.querySelector('#display-random-magic-sw
 btnRandomMagicSword.addEventListener('click', () => {
     const magic_sword = generateMagicSword();
     displayRandomMagicSword.innerHTML = magic_sword;
+});
+
+
+const btnRandomBricabrac = document.querySelector('#btn-random-bricabrac');
+const displayRandomBricabrac = document.querySelector('#display-random-bricabrac');
+
+btnRandomBricabrac.addEventListener('click', () => {
+    let bricabrac = "";
+    const roll = roll_xdx(1, 6);
+    if ( roll == 1 ) {
+        bricabrac = roll_xdx(1, 8) + " pips"
+    } else {
+        bricabrac = getRandomFromArray(carried_bricabrac);
+    }
+    displayRandomBricabrac.innerHTML = bricabrac;
 });
