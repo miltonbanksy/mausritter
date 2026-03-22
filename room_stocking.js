@@ -25,20 +25,20 @@ init();
 btnRandomRoomStock.addEventListener('click', () => {
     
     // Generate the Room Type
-    const d6 = Math.floor(Math.random() * 6) + 1;
+    const d6 = roll_xdx(1, 6);
     const room = tables.rooms.find(entry => d6 >= entry.min && d6 <= entry.max);
     
     console.log(room);
     console.log(room['room_type']);
 
     // Check for Creature
-    const creatureRoll = Math.floor(Math.random() * 6) + 1;
+    const creatureRoll = roll_xdx(1, 6);
     const hasCreature = creatureRoll >= room.creature.min && creatureRoll <= room.creature.max;
 
     console.log(`Creature Roll: ${creatureRoll}, Creature: ${hasCreature}`);
 
     // Check for Treasure
-    const treasureRoll = Math.floor(Math.random() * 6) + 1;
+    const treasureRoll = roll_xdx(1, 6);
     const hasTreasure = treasureRoll >= room.treasure.min && treasureRoll <= room.treasure.max;
 
     console.log(`Treasure Roll: ${treasureRoll}, Treasure: ${hasTreasure}`);
